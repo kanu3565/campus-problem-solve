@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+
+<!-- TOP RIGHT NAV -->
+<header class="navbar">
+    <div class="left">
+        <a href="index.html">
+            <img src="logo.png" class="logo">
+        </a>
+        <h2 class="title-text">Login</h2>
+    </div>
+
+    <div class="right">
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+    </div>
+</header>
+
+<hr class="title-line">
+
+<div class="auth-container">
+
+    <!-- LEFT SIDE -->
+    <div class="auth-left">
+
+        <div class="form-container">
+
+            <div class="dropdown-wrapper">
+                <label>Email</label>
+                <input type="email" id="loginEmail" class="custom-select">
+            </div>
+
+            <div class="dropdown-wrapper">
+                <label>Password</label>
+                <input type="password" id="loginPassword" class="custom-select">
+            </div>
+
+        </div>
+
+        <div class="button-wrapper">
+            <button onclick="login()" class="action-button">Login</button>
+        </div>
+
+        <div class="bottom-text">
+            Don't have account? <a href="register.html">Register</a>
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="auth-right">
+        <!-- image space -->
+    </div>
+
+</div>
+
+<script src="auth.js"></script>
+
+</body>

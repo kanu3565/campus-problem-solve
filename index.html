@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Links the external CSS file -->
+    <link rel="stylesheet" href="css.css">
+    
+</head>
+<body>
+
+ <!--  HEADER -->
+<div class="navbar">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+        <img src="logo.png" class="logo">
+        <h1 class="title-text">Campus Problem Solver</h1>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+
+        <a href="dashboard.html" class="profile-icon">
+            <img src="profile.png" alt="Profile">
+        </a>
+    </div>
+
+</div>
+
+
+<hr class="title-line">
+
+ 
+        <div class="form-container">
+
+    <div class="dropdown-wrapper">
+        <label><b>Choose problem regarding</b></label>
+        <select id="entry-select" class="custom-select">
+            <option value="" disabled selected>-- Choose an Option --</option>
+            <option value="cleanliness">Cleanliness</option>
+            <option value="discipline">Discipline</option>
+            <option value="sports">Sports</option>
+            <option value="event">Event</option>
+            <option value="subject">Subject</option>
+            <option value="wifi">WiFi</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <div class="dropdown-wrapper">
+        <label><b>Select specific issue</b></label>
+        <select id="sub-entry" class="custom-select">
+            <option disabled selected>-- Select main category first --</option>
+        </select>
+    </div>
+
+    <div class="dropdown-wrapper">
+        <label><b>Select Location</b></label>
+        <select id="location" class="custom-select">
+            <option disabled selected>-- Select issue first --</option>
+        </select>
+    </div>
+
+    <div class="dropdown-wrapper" id="extra-box" style="display:none;">
+        <label><b>Additional Details</b></label>
+        <select id="extra" class="custom-select"></select>
+    </div>
+
+    <div class="dropdown-wrapper">
+        <label><b>Describe your issue</b></label>
+        <textarea id="description" class="custom-select" placeholder="Write your issue in detail..."></textarea>
+    </div>
+
+</div>
+
+<div class="dropdown-wrapper">
+    <label>
+        <input type="checkbox" id="anonymous">
+        Submit as Anonymous
+    </label>
+
+    <p id="anon-msg" style="color: green; display: none;">
+        You are submitting anonymously.
+    </p>
+</div>
+
+<div class="button-wrapper">
+    <button class="action-button">Submit Complaint</button>
+</div>
+   </div>
+<script src="script.js"></script>
+</body>
+</html>

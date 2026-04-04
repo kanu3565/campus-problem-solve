@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+<!-- TOP RIGHT NAV -->
+<div class="top-auth">
+    <a href="index.html">Home</a>
+    <a href="#" onclick="logout()">Logout</a>
+</div>
+
+<h2 class="page-title">Dashboard</h2>
+<hr class="title-line">
+
+<div class="dashboard-container">
+
+    <!-- USER DETAILS -->
+    <div class="card">
+        <h3>Your Details</h3>
+        <p><b>Name:</b> <span id="userName"></span></p>
+        <p><b>Email:</b> <span id="userEmail"></span></p>
+        <p><b>Phone no:</b> <span id="userphonenumber"></span></p>
+    </div>
+
+    <!-- COMPLAINTS -->
+    <div class="card">
+        <h3>Your Complaints</h3>
+        <div id="complaintList"></div>
+    </div>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

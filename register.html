@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+
+<!-- TOP RIGHT NAV -->
+<header class="navbar">
+    <div class="left">
+        <a href="index.html">
+            <img src="logo.png" class="logo">
+        </a>
+        <h2 class="title-text">Register</h2>
+    </div>
+
+    <div class="right">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+    </div>
+</header>
+
+<hr class="title-line">
+
+<div class="auth-container">
+
+    <!-- LEFT SIDE -->
+    <div class="auth-left">
+
+        <div class="form-container">
+
+            <div class="dropdown-wrapper">
+                <label>Full Name</label>
+                <input type="text" id="name" class="custom-select">
+            </div>
+
+            <div class="dropdown-wrapper">
+                <label>Email</label>
+                <input type="email" id="email" class="custom-select">
+            </div>
+
+            <div class="dropdown-wrapper">
+                <label>Password</label>
+                <input type="password" id="password" class="custom-select">
+            </div>
+            <div class="dropdown-wrapper">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" class="custom-select">
+            </div>
+
+            <div class="dropdown-wrapper">
+                <label><b>Select Role</b></label>
+
+                <div class="role-buttons">
+                    <button type="button" class="role-btn active" onclick="selectRole('student', this)">Student</button>
+                    <button type="button" class="role-btn" onclick="selectRole('faculty', this)">Faculty</button>
+                </div>
+
+                <input type="hidden" id="role" value="student">
+            </div>
+
+        </div>
+
+        <div class="button-wrapper">
+            <button onclick="register()" class="action-button">Register</button>
+        </div>
+        <p id="passError" style="color:red; display:none; text-align:center;">
+            Passwords do not match
+         </p>
+
+        <div class="bottom-text">
+            Already have account? <a href="login.html">Login</a>
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="auth-right">
+        <!-- Image later -->
+    </div>
+
+</div>
+
+<script src="auth.js"></script>
+
+</body>
+</html>
