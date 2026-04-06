@@ -1,4 +1,4 @@
-/* ================= GLOBAL RESET ================= */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -6,110 +6,152 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: "Segoe UI", sans-serif;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 .navbar {
+    position: fixed;      /* 🔥 makes it stay fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: 15px 40px;
+     backdrop-filter: blur(0px);
+    background: rgba(255,255,255,0.8);
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    z-index: 1000;        /* 🔥 keeps it above everything */
+}
+
+body {
+    padding-top: 80px;   /* adjust based on navbar height */
 }
 
 .left {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .logo {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    background: white;
-    padding: 5px;
+    width: 55px;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .title-text {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: bold;
 }
 
-/* RIGHT LINKS */
+.right {
+    display: flex;
+    align-items: center;
+}
+
 .right a {
     margin-left: 20px;
     text-decoration: none;
-    font-weight: bold;
     color: #006eff;
+    font-weight: 600;
 }
 
-/* ================= DIVIDER ================= */
-.title-line {
-    height: 2px;
-    background-color: black;
-    border: none;
-    margin: 5px 0 10px 0;   /* FIXED GAP */
+.profile-icon img {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    border-radius: 50%;
 }
 
-/* ================= AUTH LAYOUT ================= */
-.auth-container {
+/* HERO SECTION */
+.hero-section {
+    height: 84vh; /* slightly smaller than full screen */
+    
+    /* Image stays but we control visibility */
+    background: url("collage.png") no-repeat right center/contain;
+
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px 60px;   /* REDUCED TOP SPACE */
+    align-items: center;
+    padding: 0 100px;
 }
 
-/* LEFT SIDE */
-.auth-left {
-    width: 50%;
+/* HERO CONTENT */
+.hero-content {
+    width: 50%;         /* takes half screen */
+    max-width: 700px;   /* limit on big screens */
+
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    padding: 30px;
+    border-radius: 12px;
+
+    text-align: left;
 }
 
-/* RIGHT SIDE */
-.auth-right {
-    width: 45%;
-    background: #e0e0e0;
-    min-height: 500px;
+.hero-content h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 
-/* ================= FORM ================= */
+.hero-content p {
+    margin-bottom: 15px;
+     max-width: 90%;
+    line-height: 1.5;
+}
+
+/* BUTTON */
+.hero-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #006eff;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+/* FORM SECTION */
+.form-section {
+    background: #f5f5f5;
+    padding: 30px 0;
+}
+
+/* FORM */
 .form-container {
-    width: 80%;
-    margin-left: 60px;
-    margin-top: 0;   /* 🔥 FIXED (was pushing down) */
+    width: 60%;
+    margin: auto;
+}
+#form {
+    scroll-margin-top: 100px;
 }
 
 /* INPUT BOX */
 .dropdown-wrapper {
     background: white;
-    padding: 12px 15px;
+    padding: 15px;
     border-radius: 10px;
-    margin-bottom: 12px;   /* tighter spacing */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: 0.2s;
-}
-
-.dropdown-wrapper:hover {
-    transform: translateY(-2px);
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .dropdown-wrapper label {
-    display: block;
     font-weight: 600;
+    display: block;
     margin-bottom: 5px;
-    font-size: 14px;
 }
 
-/* INPUT FIELD */
+/* INPUT */
 .custom-select {
     width: 100%;
     padding: 10px;
-    border: 1.5px solid #ccc;
     border-radius: 6px;
-    font-size: 14px;
+    border: 1px solid #ccc;
 }
 
 .custom-select:focus {
@@ -117,109 +159,34 @@ body {
     outline: none;
 }
 
-/* ================= BUTTON ================= */
-.button-wrapper {
-    margin-left: 60px;
-    margin-top: 10px;
-}
-
+/* BUTTON */
 .action-button {
-    background-color: #006eff;
+    background: #006eff;
     color: white;
-    padding: 10px 25px;
+    padding: 12px;
+    width: 100%;
+    border: none;
     border-radius: 25px;
     font-weight: bold;
-    border: none;
     cursor: pointer;
 }
 
 .action-button:hover {
-    background-color: #004bb5;
+    background: #004bb5;
 }
 
-.action-button:active {
-    transform: scale(0.95);
+/* SMOOTH SCROLL */
+html {
+    scroll-behavior: smooth;
 }
 
-/* ================= ROLE BUTTONS ================= */
-.role-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.role-btn {
-    flex: 1;
-    padding: 10px;
-    border: 2px solid #006eff;
-    background: white;
-    color: #006eff;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.role-btn.active,
-.role-btn:hover {
-    background: #006eff;
-    color: white;
-}
-
-/* ================= TEXT ================= */
-.bottom-text {
-    margin-left: 60px;
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-/* ================= DASHBOARD ================= */
-.dashboard-container {
-    width: 60%;
-    margin: 30px auto;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-
-    .auth-container {
-        flex-direction: column;
-    }
-
-    .auth-left,
-    .auth-right {
-        width: 100%;
-    }
-
     .form-container {
         width: 90%;
-        margin-left: 20px;
     }
 
-    .button-wrapper,
-    .bottom-text {
-        margin-left: 20px;
+    .hero-content h1 {
+        font-size: 24px;
     }
-}
-
-/* ================= PROFILE ICON ================= */
-.profile-icon img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #000000;
-}
-
-/* Align right side items properly */
-.right {
-    display: flex;
-    align-items: center;
 }

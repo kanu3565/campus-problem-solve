@@ -1,4 +1,4 @@
-//  DATA FOR SECOND DROPDOWN
+// ================= DATA =================
 const data = {
     cleanliness: ["Garbage issue", "Dirty washrooms", "Classroom cleaning", "Hostel cleaning"],
     discipline: ["Ragging", "Noise disturbance", "Late attendance"],
@@ -6,10 +6,9 @@ const data = {
     event: ["Event scheduling", "Management issue", "Participation issue"],
     subject: ["Faculty issue", "Syllabus doubt", "Exam problem"],
     wifi: ["Slow internet", "No connectivity", "Login issue"],
-    other: ["General complaint", "Anonymous complaint"]
+    other: [] // 🔥 empty because user will type
 };
 
-//  LOCATION DATA
 const locations = {
     cleanliness: ["Hostel", "Tech Department", "Law Department", "IBS Department","ISPS Department","ISLA Department"],
     discipline: ["Classroom", "Ground", "Mess", "Library"],
@@ -20,25 +19,45 @@ const locations = {
     other: ["Campus", "Hostel", "Other"]
 };
 
-//  EXTRA OPTIONS
 const extraOptions = {
     "Dirty washrooms": ["Boys", "Girls"],
     "Hostel cleaning": ["Boys Hostel", "Girls Hostel"]
 };
 
-//  GET ELEMENTS (ONLY ONCE)
+// ================= ELEMENTS =================
 const mainSelect = document.getElementById("entry-select");
 const subSelect = document.getElementById("sub-entry");
 const locationSelect = document.getElementById("location");
 const extraBox = document.getElementById("extra-box");
 const extraSelect = document.getElementById("extra");
 
-//  FIRST DROPDOWN CHANGE
+const otherBox = document.getElementById("otherBox");
+const otherInput = document.getElementById("otherInput");
+
+const descriptionBox = document.getElementById("description");
+
+// ================= FIRST DROPDOWN =================
 mainSelect.addEventListener("change", function () {
     const selectedValue = this.value;
 
     // Reset sub dropdown
     subSelect.innerHTML = '<option disabled selected>-- Select specific issue --</option>';
+
+    // 🔥 HANDLE OTHER
+    if (selectedValue === "other") {
+    otherBox.style.display = "block";
+
+    // 🔥 AUTO FOCUS + SCROLL
+    descriptionBox.focus();
+    descriptionBox.scrollIntoView({ behavior: "smooth" });
+
+    // OPTIONAL TEXT
+    descriptionBox.value = "Other issue: ";
+
+} else {
+    otherBox.style.display = "none";
+    otherInput.value = "";
+}
 
     // Fill sub dropdown
     if (data[selectedValue]) {
@@ -55,12 +74,22 @@ mainSelect.addEventListener("change", function () {
     extraBox.style.display = "none";
 });
 
-//  SECOND DROPDOWN CHANGE
+// ================= OTHER INPUT =================
+otherInput.addEventListener("input", function () {
+    descriptionBox.value = this.value;
+});
+
+// ================= SECOND DROPDOWN =================
 subSelect.addEventListener("change", function () {
     const mainValue = mainSelect.value;
     const subValue = this.value;
 
-    //  Load locations
+    // Auto-fill description (optional)
+    if (mainValue !== "other") {
+        descriptionBox.value = subValue;
+    }
+
+    // Load locations
     locationSelect.innerHTML = '<option disabled selected>-- Select location --</option>';
     if (locations[mainValue]) {
         locations[mainValue].forEach(function (place) {
@@ -71,7 +100,7 @@ subSelect.addEventListener("change", function () {
         });
     }
 
-    //  Extra options (conditional)
+    // Extra options
     if (extraOptions[subValue]) {
         extraBox.style.display = "block";
         extraSelect.innerHTML = '<option disabled selected>-- Select an option --</option>';
@@ -86,10 +115,12 @@ subSelect.addEventListener("change", function () {
         extraBox.style.display = "none";
     }
 });
+
+// ================= SUBMIT =================
 function submitComplaint() {
 
-    let problem = document.getElementById("entry-select").value;
-    let description = document.getElementById("description").value;
+    let problem = mainSelect.value;
+    let description = descriptionBox.value;
     let anonymous = document.getElementById("anonymous").checked;
 
     let user = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -98,7 +129,7 @@ function submitComplaint() {
         problem,
         description,
         anonymous,
-        status: "pending",   // 🔥 default
+        status: "pending",
         user: anonymous ? "Anonymous" : user.name
     };
 
@@ -110,15 +141,13 @@ function submitComplaint() {
 
     alert("Complaint submitted!");
 }
+
+// ================= ANONYMOUS =================
 const anonymousBox = document.getElementById("anonymous");
 const msg = document.getElementById("anon-msg");
 
 if (anonymousBox) {
-    anonymousBox.addEventListener("change", function() {
-        if (this.checked) {
-            msg.style.display = "block";
-        } else {
-            msg.style.display = "none";
-        }
+    anonymousBox.addEventListener("change", function () {
+        msg.style.display = this.checked ? "block" : "none";
     });
 }
