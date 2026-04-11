@@ -18,7 +18,7 @@
     </div>
 
     <div class="right">
-        <a href="index.html">Home</a>
+        
         <a href="login.html">Login</a>
         <a href="register.html">Register</a>
 
@@ -81,11 +81,38 @@
             </select>
         </div>
 
+        <div class="dropdown-wrapper" id="extra-box" style="display:none;">
+            <label>Select more details</label>  <!-- 🔥 FIXED LABEL -->
+            <select id="extra" class="custom-select">
+                 <option disabled selected>-- Select more details --</option>
+            </select>
+       </div>
+
+       <div class="dropdown-wrapper" id="equipment-box" style="display:none;">
+            <label>Select equipment</label>
+            <select id="equipment" class="custom-select">
+                <option disabled selected>-- Select equipment --</option>
+          </select>
+       </div>
+
+       <div class="dropdown-wrapper" id="sub-location-box" style="display:none;">
+            <label>Select specific location</label>
+            <select id="sub-location" class="custom-select">
+                <option disabled selected>-- Select specific location --</option>
+            </select>
+        </div>
+
         <!-- DESCRIPTION -->
         <div class="dropdown-wrapper">
             <label>Describe your issue</label>
-            <textarea id="description" class="custom-select" placeholder="Write your issue in detail..."></textarea>
+            <textarea id="description" class="custom-select"
+            maxlength="200" 
+            placeholder="Explain your issue clearly (location, problem, details)..."></textarea>        
         </div>
+
+        
+
+       
 
         <!-- ANONYMOUS -->
         <div class="dropdown-wrapper">
